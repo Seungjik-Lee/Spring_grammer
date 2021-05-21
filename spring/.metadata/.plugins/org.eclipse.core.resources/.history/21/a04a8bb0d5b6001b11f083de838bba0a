@@ -1,0 +1,17 @@
+package sj;
+
+import org.springframework.context.support.GenericApplicationContext;
+
+public class Mymain {
+	
+	public static void main(String[] args) {
+		GenericApplicationContext gxac = 
+				new GenericApplicationContext("myconfi.xml");
+		
+		AA aa1 = gxac.getBean(AA.class);
+		System.out.println(aa1);
+		
+		AA aa2 = gxac.getBean(AA.class);
+		System.out.println(aa2);;
+	}
+}

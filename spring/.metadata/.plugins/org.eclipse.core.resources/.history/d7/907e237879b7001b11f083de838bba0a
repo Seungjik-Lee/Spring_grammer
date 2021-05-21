@@ -1,0 +1,14 @@
+package sj_01;
+
+public class MemberController {
+	
+	MemberService memberService;
+	
+	public MemberController() {
+		
+	}
+ 	
+	public static void main(String[] args) {
+		new MemberController();
+	}
+}

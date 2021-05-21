@@ -1,0 +1,19 @@
+package sj_01;
+
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
+@Configuration
+public class myConfi {
+
+	@Bean
+	public MemberDao memberDao() {
+		MemberDao md = new MemberDao();
+		return md;
+	}
+	
+	@Bean
+	public MemberService memberService() {
+		return new MemberService(memberDao());
+	}
+}

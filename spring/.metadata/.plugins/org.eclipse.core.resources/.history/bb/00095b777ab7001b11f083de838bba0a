@@ -1,0 +1,15 @@
+package sj_01;
+
+public class MemberService {
+
+	MemberDao memberDao;
+	
+	public MemberService(MemberDao memberDao) {
+		this.memberDao = memberDao;
+	}
+	
+	
+	public void insert() {
+		memberDao.doInsert();
+	}
+}

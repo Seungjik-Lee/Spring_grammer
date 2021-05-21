@@ -1,0 +1,25 @@
+package sj_01;
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+
+public class MemberController {
+	
+	MemberService memberService;
+	BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	
+	public MemberController(MemberService memberService) {
+		this.memberService = memberService;
+		while(true) {
+			System.out.println("¹¹ ÇÒ±î?");
+			String cmd = br.readLine();
+			if(cmd.contentEquals("insert")) {
+				memberService.insert();
+			}
+		}
+	}
+ 	
+	public static void main(String[] args) {
+		new MemberController(new MemberService());
+	}
+}
