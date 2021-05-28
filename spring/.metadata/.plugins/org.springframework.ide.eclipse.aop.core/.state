@@ -3,5 +3,8 @@
 <aop-project name="sj"/>
 <aop-project name="Cha"/>
 <aop-project name="sj_01"/>
+<aop-project name="20210524"/>
+<aop-project name="20210525"/>
+<aop-project name="sj_0525"/>
 <aop-project name="Spring_MVC_Project"/>
 </aop-reference-model>

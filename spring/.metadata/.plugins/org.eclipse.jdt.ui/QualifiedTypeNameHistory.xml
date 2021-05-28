@@ -6,8 +6,19 @@
 <fullyQualifiedTypeName name="java.util.List"/>
 <fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="org.springframework.context.annotation.Bean"/>
-<fullyQualifiedTypeName name="org.springframework.context.annotation.Configuration"/>
 <fullyQualifiedTypeName name="java.io.IOException"/>
+<fullyQualifiedTypeName name="java.util.Arrays"/>
 <fullyQualifiedTypeName name="org.springframework.context.annotation.AnnotationConfigApplicationContext"/>
+<fullyQualifiedTypeName name="sj_0525.conf.Appctx"/>
+<fullyQualifiedTypeName name="sj_0525.beans.AA"/>
+<fullyQualifiedTypeName name="sj_0525.beans.BB"/>
+<fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
+<fullyQualifiedTypeName name="org.springframework.context.annotation.Configuration"/>
+<fullyQualifiedTypeName name="org.springframework.context.annotation.ComponentScan"/>
+<fullyQualifiedTypeName name="org.springframework.context.annotation.FilterType"/>
+<fullyQualifiedTypeName name="org.springframework.context.annotation.ComponentScan.Filter"/>
+<fullyQualifiedTypeName name="sj_0525.anno.MyAnno"/>
+<fullyQualifiedTypeName name="org.springframework.stereotype.Component"/>
 <fullyQualifiedTypeName name="org.springframework.context.support.GenericXmlApplicationContext"/>
+<fullyQualifiedTypeName name="sj_0525.beans.UseAABB"/>
 </qualifiedTypeNameHistroy>
