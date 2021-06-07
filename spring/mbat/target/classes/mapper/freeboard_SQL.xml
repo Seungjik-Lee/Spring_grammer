@@ -1,0 +1,17 @@
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+<mapper namespace="freeboard">
+	<insert id="insert" parameterType="com.org.mbat.freeboard.Board">
+		INSERT INTO FREEBOARD
+		(TITLE, PASS, CONTENT, 
+		 WDATE, NAME, EMAIL)
+		VALUES
+		(#{title},'1234',#{content},
+		NOW(),#{name},#{email});
+	</insert>
+	<select id="select">
+		SELECT * FROM FREEBOARD
+	</select>
+</mapper>
