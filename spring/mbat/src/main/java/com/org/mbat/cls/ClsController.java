@@ -5,15 +5,23 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class ClsController {
 
-	@RequestMapping("/aop")
-	public String doA(HttpServletRequest request) {
-		System.out.println("Ïó¨Í∏∞ÏóêÏÑú aop Ïã§Ìñâ");
-		HttpSession session= request.getSession();
-		session.setAttribute("id", "1234");
-		return "aop/doA";
+	//ººº« ∑Œ±◊¿Œ
+	@RequestMapping("/aopchk")
+	@ResponseBody
+	public String sessionchk(HttpServletRequest request) {
+		System.out.println("ø©±‚ø°º≠ aop Ω««‡");
+		return "after session check";
+	}
+	
+	// ººº« ∑Œ±◊¿Œ 
+	@RequestMapping("/aopdoa")
+	public String doa(HttpServletRequest request) {
+		System.out.println("ø©±‚ø°º≠ aop Ω««‡");
+		return "aop/doa";
 	}
 }

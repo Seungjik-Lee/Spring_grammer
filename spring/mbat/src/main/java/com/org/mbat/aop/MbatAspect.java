@@ -2,6 +2,10 @@ package com.org.mbat.aop;
 
 import java.util.Arrays;
 
+import javax.security.auth.message.callback.PrivateKeyCallback.Request;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.Signature;
 import org.aspectj.lang.annotation.Around;
@@ -18,17 +22,36 @@ public class MbatAspect {
 	@Around("publicTarget()")
 	public Object doASC(ProceedingJoinPoint joinPoint) throws Throwable {
 		long start = System.nanoTime();
+		HttpServletRequest request = null;
+		HttpSession session = null;
+		
 		try {
-			System.out.println("ì´ì „");
+			System.out.println("ÀÌÀü");
+			Object[] obs = joinPoint.getArgs();
+			for(Object o:obs) {
+				if(o instanceof HttpServletRequest)
+					request = (HttpServletRequest)o;
+			}
+			String a = request.getParameter("aaa");
+			System.out.println("a = " + a);
+			
+			if(request != null) {
+				session = request.getSession();
+				String pw = (String) session.getAttribute("id");
+				System.out.println("pw = " + pw);
+				if(pw == null)
+					return "redirect:/";
+			}
+				
 			Object result = joinPoint.proceed();
 			return result;
 		} finally {
 			long finish = System.nanoTime();
 			Signature sig = joinPoint.getSignature();
 			
-			System.out.println("í•´ë‹¹ í´ë˜ìŠ¤"+joinPoint.getTarget().getClass().getSimpleName());
-			System.out.println("í•´ë‹¹ ë©”ì„œë“œ"+sig.getName());
-			System.out.println("í•´ë‹¹ íŒŒë¼ë©”íƒ€"+Arrays.toString(joinPoint.getArgs()));
+			System.out.println("ÇØ´ç Å¬·¡½º"+joinPoint.getTarget().getClass().getSimpleName());
+			System.out.println("ÇØ´ç ¸Ş¼­µå"+sig.getName());
+			System.out.println("ÇØ´ç ÆÄ¶ó¸ŞÅ¸"+Arrays.toString(joinPoint.getArgs()));
 		}
 	}
 }
