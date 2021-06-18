@@ -11,7 +11,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>MH Admin Freeboard</title>
+    <title>SJ Admin Freeboard</title>
 
     <!-- Custom fonts for this template -->
     <link href="/resources/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -28,6 +28,9 @@
 </head>
 
 <body id="page-top">
+	${data}<br>
+	${strlist}<br>
+	${mylist}<br>
 
     <!-- Page Wrapper -->
     <div id="wrapper">
@@ -40,7 +43,7 @@
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-laugh-wink"></i>
                 </div>
-                <div class="sidebar-brand-text mx-3">SB Admin <sup>2</sup></div>
+                <div class="sidebar-brand-text mx-3">SJ Admin <sup>2</sup></div>
             </a>
 
             <!-- Divider -->

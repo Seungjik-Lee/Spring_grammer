@@ -11,7 +11,8 @@
 		(#{title},'1234',#{content},
 		NOW(),#{name},#{email});
 	</insert>
-	<select id="select">
-		SELECT * FROM FREEBOARD
+	<select id="select" parameterType="int" resultType="com.org.mbat.freeboard.Board">
+		SELECT * FROM FREEBOARD 
+		limit #{start}, 999;
 	</select>
 </mapper>

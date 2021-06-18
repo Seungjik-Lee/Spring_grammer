@@ -29,9 +29,9 @@
 	<beans:bean id="ds"
 		class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
 		<beans:property name="driverClassName"
-			value="com.mysql.jdbc.Driver"></beans:property>
+			value="net.sf.log4jdbc.sql.jdbcapi.DriverSpy"></beans:property>
 		<beans:property name="url"
-			value="jdbc:mysql://127.0.0.1:3306/spro"></beans:property>
+			value="jdbc:log4jdbc:mysql://127.0.0.1:3306/spro?allowPublicKeyRetrieval=true&amp;useSSL=false&amp;serverTimezone=UTC&amp;useUnicode=true&amp;characterEncoding=utf8"></beans:property>
 		<beans:property name="username" value="root"></beans:property>
 		<beans:property name="password" value="1234"></beans:property>
 	</beans:bean>
