@@ -11,8 +11,29 @@
 		(#{title},'1234',#{content},
 		NOW(),#{name},#{email});
 	</insert>
+	<update id="updateone" parameterType="com.org.mbat.freeboard.Board">
+		UPDATE FREEBOARD
+		SET TITLE= #{title},
+			PASS = #{pass},
+			CONTENT = #{content},
+			WDATE = now(),
+			NAME = #{name},
+			EMAIL = #{email}
+		WHERE IDX = #{idx}
+	</update>
 	<select id="select" parameterType="int" resultType="com.org.mbat.freeboard.Board">
 		SELECT * FROM FREEBOARD 
-		limit #{start}, 999;
+		ORDER BY IDX DESC
 	</select>
+	<select id="selectone" parameterType="int" resultType="com.org.mbat.freeboard.Board">
+		SELECT * FROM FREEBOARD WHERE IDX = #{idx}
+	</select>
+	<delete id="delete" parameterType="java.util.ArrayList">
+		DELETE FROM FREEBOARD
+		WHERE IDX IN (
+        <foreach collection="list" item="item" index="index" separator=",">
+            ${item}
+        </foreach>
+        )
+	</delete>
 </mapper>

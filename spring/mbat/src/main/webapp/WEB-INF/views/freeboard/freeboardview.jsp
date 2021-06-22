@@ -1,3 +1,4 @@
+<%@page import="com.org.mbat.freeboard.Board"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
@@ -13,19 +14,16 @@
     <meta name="author" content="">
 
     <title>SJ Admin Freeboard</title>
-
     <!-- Custom fonts for this template -->
     <link href="/resources/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
-
     <!-- Custom styles for this template -->
     <link href="/resources/css/sb-admin-2.min.css" rel="stylesheet">
-
     <!-- Custom styles for this page -->
     <link href="/resources/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
-
+	
 </head>
 
 <body id="page-top">
@@ -275,7 +273,7 @@
                                 </h6>
                                 <a class="dropdown-item d-flex align-items-center" href="#">
                                     <div class="dropdown-list-image mr-3">
-                                        <img class="rounded-circle" src="img/undraw_profile_1.svg" alt="...">
+                                        <img class="rounded-circle" src="/resources/img/undraw_profile_1.svg" alt="...">
                                         <div class="status-indicator bg-success"></div>
                                     </div>
                                     <div class="font-weight-bold">
@@ -286,7 +284,7 @@
                                 </a>
                                 <a class="dropdown-item d-flex align-items-center" href="#">
                                     <div class="dropdown-list-image mr-3">
-                                        <img class="rounded-circle" src="img/undraw_profile_2.svg" alt="...">
+                                        <img class="rounded-circle" src="/resources/img/undraw_profile_2.svg" alt="...">
                                         <div class="status-indicator"></div>
                                     </div>
                                     <div>
@@ -297,7 +295,7 @@
                                 </a>
                                 <a class="dropdown-item d-flex align-items-center" href="#">
                                     <div class="dropdown-list-image mr-3">
-                                        <img class="rounded-circle" src="img/undraw_profile_3.svg" alt="...">
+                                        <img class="rounded-circle" src="/resources/img/undraw_profile_3.svg" alt="...">
                                         <div class="status-indicator bg-warning"></div>
                                     </div>
                                     <div>
@@ -329,7 +327,7 @@
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span class="mr-2 d-none d-lg-inline text-gray-600 small">Douglas McGee</span>
-                                <img class="img-profile rounded-circle" src="img/undraw_profile.svg">
+                                <img class="img-profile rounded-circle" src="/resources/img/undraw_profile.svg">
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
@@ -378,22 +376,23 @@
                                 <form name="form" id="form" role="form" method="post" action="/freeboard/insert">
                                     <div class="mb-3">
                                         <label for="title">제목</label>
-                                        <input type="text" class="form-control" name="title" id="title" placeholder="제목을 입력해 주세요">
+                                        ${board.title}
                                     </div>
                                     <div class="mb-3">
                                         <label for="name">작성자</label>
-                                        <input type="text" class="form-control" name="name" id="name" placeholder="이름을 입력해 주세요">
+                                        ${board.name }
                                     </div>
                                     <div class="mb-3">
                                         <label for="email">이메일</label>
-                                        <input type="text" class="form-control" name="email" id="email" placeholder="메일을 입력해 주세요">
+                                        ${board.email }
                                     </div>
                                     <div class="mb-3">
                                         <label for="content">내용</label>
-                                        <textarea class="form-control" rows="5" name="content" id="content" placeholder="내용을 입력해 주세요"></textarea>
+                                        ${board.content }
                                     </div>
                                     <div class="mb-3">
-                                        <input class="btn btn-primary" type="submit" value="저장"/>
+                                        <input class="btn btn-primary" type="button" value="수정" id="update"/>
+                                        <input class="btn btn-primary" type="button" value="뒤로" id="back"/>
                                     </div>
                                 </form>
                             </div>
@@ -463,7 +462,35 @@
 
     <!-- Page level custom scripts -->
     <script src="/resources/js/demo/datatables-demo.js"></script>
-    
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$('#update').on('click',function(){
+// 				var idx = ${board.idx};
+				var idx = <%=((Board)request.getAttribute("board")).getIdx()%>;
+				location.href='updateform?idx='+idx;
+			})
+			$('#back').on('click',function(){ 
+				history.go(-1);				
+			})
+		})
+	</script>
 </body>
 
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
