@@ -1,4 +1,0 @@
-#Tomcat publish data
-#Tue May 25 09:29:37 KST 2021
-org.eclipse.jst.jee.server\:20210524=C\:\\Users\\KB\\Desktop\\sts-bundle\\pivotal-tc-server\\instances\\base-instance\\wtpwebapps\\20210524
-org.eclipse.jst.jee.server\:Cha=C\:\\Users\\KB\\Desktop\\sts-bundle\\pivotal-tc-server\\instances\\base-instance\\wtpwebapps\\Cha
