@@ -1,0 +1,38 @@
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+<mapper namespace="freeboard">
+	<insert id="insert" parameterType="com.org.sjproject.freeboard.Board">
+		INSERT INTO FREEBOARD
+		(TITLE, PASS, CONTENT, 
+		 WDATE, NAME, EMAIL)
+		VALUES
+		(#{title},'tmdwlr12#', #{content}, NOW(), #{name}, #{email});
+	</insert>
+	<update id="updateone" parameterType="com.org.sjproject.freeboard.Board">
+		UPDATE FREEBOARD
+		SET TITLE= #{title},
+			PASS = #{pass},
+			CONTENT = #{content},
+			WDATE = now(),
+			NAME = #{name},
+			EMAIL = #{email}
+		WHERE IDX = #{idx}
+	</update>
+	<select id="select" parameterType="int" resultType="com.org.sjproject.freeboard.Board">
+		SELECT * FROM FREEBOARD 
+		ORDER BY IDX DESC
+	</select>
+	<select id="selectone" parameterType="int" resultType="com.org.sjproject.freeboard.Board">
+		SELECT * FROM FREEBOARD WHERE IDX = #{idx}
+	</select>
+	<delete id="delete" parameterType="java.util.ArrayList">
+		DELETE FROM FREEBOARD
+		WHERE IDX IN (
+        <foreach collection="list" item="item" index="index" separator=",">
+            ${item}
+        </foreach>
+        )
+	</delete>
+</mapper>
