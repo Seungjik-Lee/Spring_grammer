@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="kr">
 
 <head>
     <meta charset="utf-8">
@@ -62,10 +62,10 @@
                                         <input id="login11" type="button" class="btn btn-primary btn-user btn-block"
                                             value="login">
                                         <hr>
-                                        <a href="index.html" class="btn btn-google btn-user btn-block">
+                                        <a href="index.jsp" class="btn btn-google btn-user btn-block">
                                             <i class="fab fa-google fa-fw"></i> Login with Google
                                         </a>
-                                        <a href="index.html" class="btn btn-facebook btn-user btn-block">
+                                        <a href="index.jsp" class="btn btn-facebook btn-user btn-block">
                                             <i class="fab fa-facebook-f fa-fw"></i> Login with Facebook
                                         </a>
                                     </form>
@@ -74,7 +74,7 @@
                                         <a class="small" href="forgot-password.html">Forgot Password?</a>
                                     </div>
                                     <div class="text-center">
-                                        <a class="small" href="register.html">Create an Account!</a>
+                                        <a class="small" href="/register.jsp">Create an Account!</a>
                                     </div>
                                 </div>
                             </div>
@@ -103,7 +103,7 @@
 </html>
 
 <script>
-	//  http://localhost:9000?bbb=bvalue
+//  http://localhost:9000?bbb=bvalue
     $('document').ready(function () {
         $('#login').on('click', function () {
             $.ajax({
